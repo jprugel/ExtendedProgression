@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 1000,
+  "experience": 3.0,
+  "group": "astral_debris_to_enderite_scrap",
+  "ingredient": "extended-progression:astral_debris",
+  "result": {
+    "id": "extended-progression:enderite_scrap"
+  }
+}
