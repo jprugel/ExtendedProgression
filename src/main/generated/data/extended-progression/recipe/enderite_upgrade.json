@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "extended-progression",
+  "key": {
+    "a": "minecraft:netherite_ingot",
+    "b": "extended-progression:enderite_upgrade",
+    "c": "minecraft:echo_shard"
+  },
+  "pattern": [
+    "aba",
+    "aca",
+    "aaa"
+  ],
+  "result": {
+    "count": 2,
+    "id": "extended-progression:enderite_upgrade"
+  }
+}
