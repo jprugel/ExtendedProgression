@@ -1,25 +1,42 @@
 package dev.jprugel.extendedProgression.item;
 
 import dev.jprugel.extendedProgression.ExtendedProgression;
+import dev.jprugel.extendedProgression.item.armor.EnderiteArmorMaterial;
 import eu.pb4.polymer.core.api.item.PolymerCreativeModeTabUtils;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Function;
 
 public class ModItems {
+    public static final TagKey<Block> INCORRECT_FOR_ENDERITE_TOOL = TagKey.create(Registries.BLOCK,
+            Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, "incorrect_for_enderite_tool"));
+
+    public static final ToolMaterial ENDERITE_TOOL_MATERIAL = new ToolMaterial(
+            INCORRECT_FOR_ENDERITE_TOOL,
+            455,
+            5.0f,
+            1.5f,
+            22,
+            EnderiteArmorMaterial.REPAIRS_ENDERITE_ARMOR
+    );
+
     public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new, new Item.Properties());
     public static final Item ENDERITE_SCRAP = register(ModItemIds.ENDERITE_SCRAP, SimplePolymerItem::new, new Item.Properties());
     public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = register(ModItemIds.ENDERITE_UPGRADE_SMITHING_TEMPLATE, SimplePolymerItem::new, new Item.Properties());
-    public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, SimplePolymerItem::new, new Item.Properties());
+    public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, properties -> new SimplePolymerItem(
+            properties.axe(ENDERITE_TOOL_MATERIAL, 1f, 1f),
+            Items.NETHERITE_AXE
+    ), new Item.Properties().axe(ENDERITE_TOOL_MATERIAL, 1f, 1f));
 
 
     public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(

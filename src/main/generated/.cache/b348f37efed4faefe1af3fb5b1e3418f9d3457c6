@@ -1,6 +1,6 @@
 // 26.2	-999999999-01-01T00:00:00	Extended Progression/ExtendedProgressionRecipeProvider
+9aecfff2516db4e16c46c9a58a3614917c8d88ba data/extended-progression/advancement/recipes/combat/enderite_axe_smithing.json
 9e93e1f0c09a4e980f521f6af28e15e4a0167e1e data/extended-progression/advancement/recipes/misc/enderite.json
-3ac101d3c398c49ad522178a5af823085d840302 data/extended-progression/advancement/recipes/misc/enderite_axe_smithing.json
 bd1190f2adabf9bb6484c2892bcaf19c80ce5799 data/extended-progression/advancement/recipes/misc/enderite_scrap_from_blasting_astral_debris.json
 302676241e60744f1576f03a776e9579ea247863 data/extended-progression/advancement/recipes/misc/enderite_scrap_from_smelting_astral_debris.json
 7bac95899fb35d6555bb133e09d98000aea08adf data/extended-progression/advancement/recipes/misc/enderite_upgrade.json

@@ -28,7 +28,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        return new RecipeProvider(registries, output) {
+        return new EPRecipeProvider(registries, output) {
             @Override
             public void buildRecipes() {
                 //HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
@@ -72,7 +72,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .unlockedBy(getHasName(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE), has(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE))
                         .save(output);
 
-                SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Items.NETHERITE_AXE), this.tag(ModItemTagProvider.ENDERITE_TOOL_MATERIALS), RecipeCategory.MISC, ModItems.ENDERITE_AXE).unlocks("has_netherite_ingot", this.has(ModItemTagProvider.ENDERITE_TOOL_MATERIALS)).save(this.output, getItemName(ModItems.ENDERITE_AXE) + "_smithing");
+                enderiteSmithing(
+                        Items.NETHERITE_AXE,
+                        RecipeCategory.COMBAT,
+                        ModItems.ENDERITE_AXE
+                );
             }
         };
     }
