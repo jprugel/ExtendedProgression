@@ -1,17 +1,22 @@
 package dev.jprugel.extendedProgression.datagen;
 
+import dev.jprugel.extendedProgression.ExtendedProgression;
 import dev.jprugel.extendedProgression.block.ModBlocks;
 import dev.jprugel.extendedProgression.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -47,7 +52,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         "astral_debris_to_enderite_scrap"
                 );
 
-                shapeless(RecipeCategory.MISC, ModItems.ENDERITE)
+                shapeless(RecipeCategory.MISC, ModItems.ENDERITE_INGOT)
                         .requires(ModItems.ENDERITE_SCRAP, 3)
                         .requires(Items.ECHO_SHARD, 3)
                         .unlockedBy(
@@ -55,6 +60,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                                 has(ModItems.ENDERITE_SCRAP)
                         )
                         .save(output, "enderite");
+
+                shaped(RecipeCategory.MISC, ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE, 2)
+                        .pattern("aba")
+                        .pattern("aca")
+                        .pattern("aaa")
+                        .define('a', Ingredient.of(Items.NETHERITE_INGOT))
+                        .define('b', Ingredient.of(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE))
+                        .define('c', Ingredient.of(Items.ECHO_SHARD))
+                        .group(ExtendedProgression.MOD_ID)
+                        .unlockedBy(getHasName(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE), has(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE))
+                        .save(output);
+
+                SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Items.NETHERITE_AXE), this.tag(ModItemTagProvider.ENDERITE_TOOL_MATERIALS), RecipeCategory.MISC, ModItems.ENDERITE_AXE).unlocks("has_netherite_ingot", this.has(ModItemTagProvider.ENDERITE_TOOL_MATERIALS)).save(this.output, getItemName(ModItems.ENDERITE_AXE) + "_smithing");
             }
         };
     }

@@ -1,6 +1,7 @@
 package dev.jprugel.extendedProgression.client;
 
 import dev.jprugel.extendedProgression.datagen.ModBlockLootTableProvider;
+import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
 import dev.jprugel.extendedProgression.datagen.ModModelProvider;
 import dev.jprugel.extendedProgression.datagen.ModRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -15,5 +16,6 @@ public class ExtendedProgressionDataGenerator implements DataGeneratorEntrypoint
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModBlockLootTableProvider::new);
         pack.addProvider(ModRecipeProvider::new);
+        pack.addProvider(ModItemTagProvider::new);
     }
 }

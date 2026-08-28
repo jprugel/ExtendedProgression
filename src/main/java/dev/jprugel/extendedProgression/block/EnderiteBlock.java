@@ -1,0 +1,35 @@
+package dev.jprugel.extendedProgression.block;
+
+import dev.jprugel.extendedProgression.ExtendedProgression;
+import eu.pb4.polymer.blocks.api.BlockModelType;
+import eu.pb4.polymer.blocks.api.PolymerBlockModel;
+import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;
+import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jspecify.annotations.Nullable;
+
+public class EnderiteBlock extends Block implements PolymerTexturedBlock {
+    private final BlockState polymerState;
+
+    public EnderiteBlock(Properties properties) {
+        super(properties);
+
+        this.polymerState = PolymerBlockResourceUtils.requestBlock(
+                BlockModelType.FULL_BLOCK,
+                PolymerBlockModel.of(
+                        Identifier.fromNamespaceAndPath(
+                                ExtendedProgression.MOD_ID,
+                                "block/astral_debris"
+                        )
+                )
+        );
+    }
+
+    @Override
+    public BlockState getPolymerBlockState(BlockState state, @Nullable PacketContext context) {
+        return this.polymerState;
+    }
+}

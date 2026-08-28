@@ -28,6 +28,13 @@ public class ModBlocks {
                     .sound(SoundType.GRASS)
     );
 
+    public static final AstralDebrisBlock ENDERITE_BLOCK = register(
+            ModBlockItemIds.ENDERITE_BLOCK,
+            AstralDebrisBlock::new,
+            BlockBehaviour.Properties.of()
+                    .sound(SoundType.GRASS)
+    );
+
     private static <T extends Block> T register(BlockItemId id, Function<BlockBehaviour.Properties, T> blockFactory, BlockBehaviour.Properties properties) {
         // Create the block instance
         var block = register(id.block(), blockFactory, properties);

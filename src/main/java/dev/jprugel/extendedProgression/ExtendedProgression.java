@@ -15,6 +15,7 @@ public class ExtendedProgression implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Initializing...");
 
+        PolymerResourcePackUtils.markAsRequired();
         PolymerResourcePackUtils.addModAssets(ExtendedProgression.MOD_ID);
 
         ModItems.initialize();

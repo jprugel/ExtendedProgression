@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 
 public class ModBlockItemIds {
     public static final BlockItemId ASTRAL_DEBRIS = create("astral_debris");
+    public static final BlockItemId ENDERITE_BLOCK = create("enderite_block");
 
     private static BlockItemId create(String name) {
         Identifier id = Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, name);
