@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "#extended-progression:enderite_tool_materials",
+  "addition": "#extended-progression:enderite_tool_material",
   "base": "minecraft:netherite_axe",
   "result": {
     "id": "extended-progression:enderite_axe"

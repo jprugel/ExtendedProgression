@@ -28,7 +28,7 @@ public abstract class EPRecipeProvider extends RecipeProvider {
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE),
                         Ingredient.of(base),
-                        this.tag(ModItemTagProvider.ENDERITE_TOOL_MATERIALS),
+                        this.tag(ModItemTagProvider.ENDERITE_TOOL_MATERIAL),
                         category,
                         result
                 )

@@ -12,9 +12,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 import java.util.concurrent.CompletableFuture;
-
 public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
-    public static final TagKey<Item> ENDERITE_TOOL_MATERIALS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, "enderite_tool_materials"));
+    public static final TagKey<Item> ENDERITE_TOOL_MATERIAL = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, "enderite_tool_material"));
 
     public ModItemTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
@@ -22,7 +21,7 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        builder(ENDERITE_TOOL_MATERIALS)
+        builder(ENDERITE_TOOL_MATERIAL)
                 .add(ModItemIds.ENDERITE_INGOT)
                 .setReplace(true);
     }

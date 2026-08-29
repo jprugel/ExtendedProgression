@@ -1,78 +1,35 @@
 package dev.jprugel.extendedProgression.item;
 
 import dev.jprugel.extendedProgression.ExtendedProgression;
-import dev.jprugel.extendedProgression.item.armor.EnderiteArmorMaterial;
+import dev.jprugel.extendedProgression.datagen.ModBlockTagProvider;
+import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
+import dev.jprugel.extendedProgression.item.custom.EnderiteAxe;
 import eu.pb4.polymer.core.api.item.PolymerCreativeModeTabUtils;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
 
 import java.util.function.Function;
 
 public class ModItems {
-    public static final TagKey<Block> INCORRECT_FOR_ENDERITE_TOOL = TagKey.create(Registries.BLOCK,
-            Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, "incorrect_for_enderite_tool"));
-
     public static final ToolMaterial ENDERITE_TOOL_MATERIAL = new ToolMaterial(
-            INCORRECT_FOR_ENDERITE_TOOL,
+            ModBlockTagProvider.INCORRECT_FOR_ENDERITE_TOOL,
             455,
             5.0f,
             1.5f,
             22,
-            EnderiteArmorMaterial.REPAIRS_ENDERITE_ARMOR
+            ModItemTagProvider.ENDERITE_TOOL_MATERIAL
     );
 
     public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new, new Item.Properties());
     public static final Item ENDERITE_SCRAP = register(ModItemIds.ENDERITE_SCRAP, SimplePolymerItem::new, new Item.Properties());
     public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = register(ModItemIds.ENDERITE_UPGRADE_SMITHING_TEMPLATE, SimplePolymerItem::new, new Item.Properties());
-    public static final Item ENDERITE_AXE = register(
-            ModItemIds.ENDERITE_AXE,
-            properties -> new SimplePolymerItem(
-                properties.axe(ENDERITE_TOOL_MATERIAL, 1f, 1f),
-                Items.NETHERITE_AXE
-            ),
-            new Item.Properties()
-    );
-    public static final Item ENDERITE_SWORD = register(
-            ModItemIds.ENDERITE_SWORD,
-            properties -> new SimplePolymerItem(
-                    properties,
-                    Items.NETHERITE_SWORD
-            ),
-            new Item.Properties().sword(ENDERITE_TOOL_MATERIAL, 1f, 1f)
-    );
-    public static final Item ENDERITE_HOE = register(
-            ModItemIds.ENDERITE_HOE,
-            properties -> new SimplePolymerItem(
-                    properties,
-                    Items.NETHERITE_HOE
-            ),
-            new Item.Properties().hoe(ENDERITE_TOOL_MATERIAL, 1f, 1f)
-    );
-    public static final Item ENDERITE_PICKAXE = register(
-            ModItemIds.ENDERITE_PICKAXE,
-            properties -> new SimplePolymerItem(
-                    properties,
-                    Items.NETHERITE_PICKAXE
-            ),
-            new Item.Properties().pickaxe(ENDERITE_TOOL_MATERIAL, 1f, 1f)
-    );
-    public static final Item ENDERITE_SHOVEL = register(
-            ModItemIds.ENDERITE_SHOVEL,
-            properties -> new SimplePolymerItem(
-                    properties,
-                    Items.NETHERITE_SHOVEL
-            ),
-            new Item.Properties().shovel(ENDERITE_TOOL_MATERIAL, 1f, 1f)
-    );
+    public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, EnderiteAxe::new, new Item.Properties());
 
     public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(
             BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, "creative_tab")
@@ -108,13 +65,5 @@ public class ModItems {
                 .register((creativeTab) -> creativeTab.accept(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE));
         CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY)
                 .register((creativeTab) -> creativeTab.accept(ModItems.ENDERITE_AXE));
-        CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY)
-                .register((creativeTab) -> creativeTab.accept(ModItems.ENDERITE_PICKAXE));
-        CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY)
-                .register((creativeTab) -> creativeTab.accept(ModItems.ENDERITE_SHOVEL));
-        CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY)
-                .register((creativeTab) -> creativeTab.accept(ModItems.ENDERITE_SWORD));
-        CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY)
-                .register((creativeTab) -> creativeTab.accept(ModItems.ENDERITE_HOE));
     }
 }
