@@ -28,9 +28,9 @@ public class ModBlocks {
                     .sound(SoundType.GRASS)
     );
 
-    public static final AstralDebrisBlock ENDERITE_BLOCK = register(
+    public static final EnderiteBlock ENDERITE_BLOCK = register(
             ModBlockItemIds.ENDERITE_BLOCK,
-            AstralDebrisBlock::new,
+            EnderiteBlock::new,
             BlockBehaviour.Properties.of()
                     .sound(SoundType.GRASS)
     );
