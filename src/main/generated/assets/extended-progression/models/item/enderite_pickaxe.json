@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "extended-progression:item/enderite"
+    "layer0": "extended-progression:item/enderite_pickaxe"
   }
 }

@@ -5,18 +5,14 @@ import dev.jprugel.extendedProgression.block.ModBlocks;
 import dev.jprugel.extendedProgression.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -27,7 +23,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
+    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull RecipeOutput output) {
         return new EPRecipeProvider(registries, output) {
             @Override
             public void buildRecipes() {
@@ -82,12 +78,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         RecipeCategory.COMBAT,
                         ModItems.ENDERITE_HOE
                 );
+                enderiteSmithing(
+                        Items.NETHERITE_SWORD,
+                        RecipeCategory.COMBAT,
+                        ModItems.ENDERITE_SWORD
+                );
+                enderiteSmithing(
+                        Items.NETHERITE_SHOVEL,
+                        RecipeCategory.COMBAT,
+                        ModItems.ENDERITE_SHOVEL
+                );
+                enderiteSmithing(
+                        Items.NETHERITE_PICKAXE,
+                        RecipeCategory.COMBAT,
+                        ModItems.ENDERITE_PICKAXE
+                );
             }
         };
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "ExtendedProgressionRecipeProvider";
     }
 }

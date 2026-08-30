@@ -54,6 +54,7 @@ public class ModItems {
             .displayItems((params, output) -> {
                 output.accept(ModItems.ENDERITE_INGOT);
                 output.accept(ModItems.ENDERITE_SCRAP);
+                output.accept(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE);
                 output.accept(ModBlocks.ASTRAL_DEBRIS);
                 output.accept(ModBlocks.ENDERITE_BLOCK);
 

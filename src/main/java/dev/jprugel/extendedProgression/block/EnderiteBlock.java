@@ -22,7 +22,7 @@ public class EnderiteBlock extends Block implements PolymerTexturedBlock {
                 PolymerBlockModel.of(
                         Identifier.fromNamespaceAndPath(
                                 ExtendedProgression.MOD_ID,
-                                "block/astral_debris"
+                                "block/enderite_block"
                         )
                 )
         );

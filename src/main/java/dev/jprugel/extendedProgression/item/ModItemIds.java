@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 
 public class ModItemIds {
-    public static final ResourceKey<Item> ENDERITE_INGOT = create("enderite");
+    public static final ResourceKey<Item> ENDERITE_INGOT = create("enderite_ingot");
     public static final ResourceKey<Item> ENDERITE_SCRAP = create("enderite_scrap");
     public static final ResourceKey<Item> ENDERITE_UPGRADE_SMITHING_TEMPLATE = create("enderite_upgrade");
 
