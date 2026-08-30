@@ -7,6 +7,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.BiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -23,7 +24,7 @@ public class ModWorldPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         List<PlacementModifier> astralDebrisVeinModifiers = List.of(
-                CountPlacement.of(100),
+                CountPlacement.of(1),
                 BiomeFilter.biome(),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.TOP, VerticalAnchor.BOTTOM)

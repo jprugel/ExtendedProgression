@@ -27,8 +27,8 @@ public class ExtendedProgression implements ModInitializer {
         PolymerResourcePackUtils.addModAssets(ExtendedProgression.MOD_ID);
 
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInTheEnd(),
-                GenerationStep.Decoration.UNDERGROUND_ORES,
+                BiomeSelectors.tag(BiomeTags.HAS_END_CITY),
+                GenerationStep.Decoration.RAW_GENERATION,
                 ModWorldPlacedFeatures.ASTRAL_DEBRIS_PLACED_KEY
         );
 
