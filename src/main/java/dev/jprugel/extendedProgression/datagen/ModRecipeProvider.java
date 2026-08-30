@@ -77,6 +77,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         RecipeCategory.COMBAT,
                         ModItems.ENDERITE_AXE
                 );
+                enderiteSmithing(
+                        Items.NETHERITE_HOE,
+                        RecipeCategory.COMBAT,
+                        ModItems.ENDERITE_HOE
+                );
             }
         };
     }
