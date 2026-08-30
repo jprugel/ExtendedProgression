@@ -8,7 +8,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.tag.FabricTagKey;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.world.level.block.ChorusFlowerBlock;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +27,8 @@ public class ExtendedProgression implements ModInitializer {
         PolymerResourcePackUtils.addModAssets(ExtendedProgression.MOD_ID);
 
         BiomeModifications.addFeature(
-                BiomeSelectors.tag(BiomeTags.HAS_END_CITY),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION,
+                BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
                 ModWorldPlacedFeatures.ASTRAL_DEBRIS_PLACED_KEY
         );
 

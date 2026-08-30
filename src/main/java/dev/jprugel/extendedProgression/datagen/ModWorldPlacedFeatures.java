@@ -21,7 +21,7 @@ public class ModWorldPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         List<PlacementModifier> astralDebrisVeinModifiers = List.of(
-                CountPlacement.of(2),
+                CountPlacement.of(100),
                 BiomeFilter.biome(),
                 InSquarePlacement.spread()
         );

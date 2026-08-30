@@ -1,0 +1,15 @@
+{
+  "feature": "extended-progression:astral_debris_vein",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 100
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:in_square"
+    }
+  ]
+}
