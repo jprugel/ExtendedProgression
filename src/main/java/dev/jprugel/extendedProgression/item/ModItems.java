@@ -54,7 +54,7 @@ public class ModItems {
     public static final CreativeModeTab CUSTOM_CREATIVE_TAB = PolymerCreativeModeTabUtils.builder()
             .icon(() -> new ItemStack(ModItems.ENDERITE_INGOT))
             .title(Component.translatable("creativeTab.extended-progression"))
-            .displayItems((params, output) -> {
+            .displayItems((_, output) -> {
                 output.accept(ModItems.ENDERITE_INGOT);
                 output.accept(ModItems.ENDERITE_SCRAP);
                 output.accept(ModItems.ENDERITE_HORSE_ARMOR);
