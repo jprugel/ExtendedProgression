@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smithing_transform",
-  "addition": "#extended-progression:enderite_tool_material",
-  "base": "minecraft:netherite_hoe",
-  "result": {
-    "id": "extended-progression:enderite_hoe"
-  },
-  "template": "extended-progression:enderite_upgrade_smithing_template"
-}

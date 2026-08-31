@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "extended-progression:block/astral_debris_top",
-    "side": "extended-progression:block/astral_debris_side"
-  }
-}

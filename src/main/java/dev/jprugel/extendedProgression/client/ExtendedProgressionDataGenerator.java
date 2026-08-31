@@ -26,5 +26,6 @@ public class ExtendedProgressionDataGenerator implements DataGeneratorEntrypoint
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModWorldGenProvider::new);
         pack.addProvider(ModEnglishLangProvider::new);
+        pack.addProvider(ModAdvancementProvider::new);
     }
 }
