@@ -1,14 +1,11 @@
 package dev.jprugel.extendedProgression.item.tool;
 
-import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
 import dev.jprugel.extendedProgression.item.ModItems;
-import dev.jprugel.extendedProgression.item.armor.EnderiteArmorMaterial;
 import eu.pb4.polymer.core.api.item.PolymerItem;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ToolMaterial;
 
 public class EnderiteSword extends Item implements PolymerItem {
     public EnderiteSword(Properties properties) {
