@@ -54,8 +54,5 @@ public class ModBlocks {
     }
 
     public static void initialize() {
-        CreativeModeTabEvents.modifyOutputEvent(ModItems.CUSTOM_CREATIVE_TAB_KEY).register((creativeTab) -> {
-            creativeTab.accept(ModBlocks.ASTRAL_DEBRIS.asItem());
-        });
     }
 }

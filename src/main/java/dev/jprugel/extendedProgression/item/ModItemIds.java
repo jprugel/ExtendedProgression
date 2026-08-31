@@ -13,6 +13,7 @@ public class ModItemIds {
 
     public static final ResourceKey<Item> ENDERITE_AXE = create("enderite_axe");
     public static final ResourceKey<Item> ENDERITE_HOE = create("enderite_hoe");
+    public static final ResourceKey<Item> ENDERITE_SPEAR = create("enderite_spear");
     public static final ResourceKey<Item> ENDERITE_SWORD = create("enderite_sword");
     public static final ResourceKey<Item> ENDERITE_SHOVEL = create("enderite_shovel");
     public static final ResourceKey<Item> ENDERITE_PICKAXE = create("enderite_pickaxe");

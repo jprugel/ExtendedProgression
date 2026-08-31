@@ -1,8 +1,6 @@
 package dev.jprugel.extendedProgression.datagen;
 
-import dev.jprugel.extendedProgression.ExtendedProgression;
 import dev.jprugel.extendedProgression.block.ModBlocks;
-import dev.jprugel.extendedProgression.item.ModItemIds;
 import dev.jprugel.extendedProgression.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -19,6 +17,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder tb) {
         tb.add("creativeTab.extended-progression", "Pyric Server Additions Enderite");
+        tb.add(ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG, "Enderite Tool Material");
 
         tb.add(ModBlocks.ASTRAL_DEBRIS, "Astral Debris");
         tb.add(ModBlocks.ENDERITE_BLOCK, "Enderite Block");
@@ -29,6 +28,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         tb.add(ModItems.ENDERITE_HOE, "Enderite Hoe");
         tb.add(ModItems.ENDERITE_AXE, "Enderite Axe");
+        tb.add(ModItems.ENDERITE_SPEAR, "Enderite Spear");
         tb.add(ModItems.ENDERITE_SWORD, "Enderite Sword");
         tb.add(ModItems.ENDERITE_SHOVEL, "Enderite Shovel");
         tb.add(ModItems.ENDERITE_PICKAXE, "Enderite Pickaxe");

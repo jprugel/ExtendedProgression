@@ -4,12 +4,9 @@ import java.util.Map;
 
 import dev.jprugel.extendedProgression.ExtendedProgression;
 import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
@@ -40,7 +37,7 @@ public class EnderiteArmorMaterial {
             SoundEvents.ARMOR_EQUIP_CHAIN,
             4.0F,
             2.0F,
-            ModItemTagProvider.REPAIRS_ENDERITE_ARMOR,
+            ModItemTagProvider.ENDERITE_ARMOR_MATERIAL_TAG,
             ENDERITE_ARMOR_MATERIAL_KEY
     );
     // #endregion guidite_armor_material

@@ -8,7 +8,6 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public abstract class EPRecipeProvider extends RecipeProvider {
@@ -28,7 +27,7 @@ public abstract class EPRecipeProvider extends RecipeProvider {
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE),
                         Ingredient.of(base),
-                        this.tag(ModItemTagProvider.ENDERITE_TOOL_MATERIAL),
+                        this.tag(ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG),
                         category,
                         result
                 )

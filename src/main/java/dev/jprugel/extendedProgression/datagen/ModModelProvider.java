@@ -25,11 +25,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_INGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_SCRAP, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_AXE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_HOE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ENDERITE_SPEAR, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_SWORD, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_SHOVEL, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_PICKAXE, ModelTemplates.FLAT_ITEM);
+
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_BOOTS, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_HELMET, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ENDERITE_LEGGINGS, ModelTemplates.FLAT_ITEM);

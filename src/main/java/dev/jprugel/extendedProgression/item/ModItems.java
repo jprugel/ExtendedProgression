@@ -24,10 +24,10 @@ public class ModItems {
     public static final ToolMaterial ENDERITE_TOOL_MATERIAL = new ToolMaterial(
             ModBlockTagProvider.INCORRECT_FOR_ENDERITE_TOOL,
             455,
-            5.0f,
-            1.5f,
+            1f,
+            2f,
             22,
-            ModItemTagProvider.ENDERITE_TOOL_MATERIAL
+            ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG
     );
 
     public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new, new Item.Properties());
@@ -36,6 +36,7 @@ public class ModItems {
 
     public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, EnderiteAxe::new, new Item.Properties());
     public static final Item ENDERITE_HOE = register(ModItemIds.ENDERITE_HOE, EnderiteHoe::new, new Item.Properties());
+    public static final Item ENDERITE_SPEAR = register(ModItemIds.ENDERITE_SPEAR, EnderiteSpear::new, new Item.Properties());
     public static final Item ENDERITE_SWORD = register(ModItemIds.ENDERITE_SWORD, EnderiteSword::new, new Item.Properties());
     public static final Item ENDERITE_SHOVEL = register(ModItemIds.ENDERITE_SHOVEL, EnderiteShovel::new, new Item.Properties());
     public static final Item ENDERITE_PICKAXE = register(ModItemIds.ENDERITE_PICKAXE, EnderitePickaxe::new, new Item.Properties());
@@ -60,6 +61,7 @@ public class ModItems {
 
                 output.accept(ModItems.ENDERITE_AXE);
                 output.accept(ModItems.ENDERITE_HOE);
+                output.accept(ModItems.ENDERITE_SPEAR);
                 output.accept(ModItems.ENDERITE_SWORD);
                 output.accept(ModItems.ENDERITE_SHOVEL);
                 output.accept(ModItems.ENDERITE_PICKAXE);
