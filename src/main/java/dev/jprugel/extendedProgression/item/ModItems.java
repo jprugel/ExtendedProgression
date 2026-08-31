@@ -1,6 +1,5 @@
 package dev.jprugel.extendedProgression.item;
 
-import dev.jprugel.extendedProgression.ExtendedProgression;
 import dev.jprugel.extendedProgression.block.ModBlocks;
 import dev.jprugel.extendedProgression.datagen.ModBlockTagProvider;
 import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
@@ -9,14 +8,13 @@ import dev.jprugel.extendedProgression.item.armor.EnderiteChestplate;
 import dev.jprugel.extendedProgression.item.armor.EnderiteHelmet;
 import dev.jprugel.extendedProgression.item.armor.EnderiteLeggings;
 import dev.jprugel.extendedProgression.item.tool.*;
-import eu.pb4.polymer.core.api.item.PolymerCreativeModeTabUtils;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.function.Function;
 
@@ -48,35 +46,10 @@ public class ModItems {
     public static final Item ENDERITE_LEGGINGS = register(ModItemIds.ENDERITE_LEGGINGS, EnderiteLeggings::new, new Item.Properties());
     public static final Item ENDERITE_CHESTPLATE = register(ModItemIds.ENDERITE_CHESTPLATE, EnderiteChestplate::new, new Item.Properties());
 
-    public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(
-            BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExtendedProgression.MOD_ID, "creative_tab")
-    );
-    public static final CreativeModeTab CUSTOM_CREATIVE_TAB = PolymerCreativeModeTabUtils.builder()
-            .icon(() -> new ItemStack(ModItems.ENDERITE_INGOT))
-            .title(Component.translatable("creativeTab.extended-progression"))
-            .displayItems((_, output) -> {
-                output.accept(ModItems.ENDERITE_INGOT);
-                output.accept(ModItems.ENDERITE_SCRAP);
-                output.accept(ModItems.ENDERITE_HORSE_ARMOR);
-                output.accept(ModItems.ENDERITE_NAUTILUS_ARMOR);
-                output.accept(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE);
-
-                output.accept(ModBlocks.ASTRAL_DEBRIS);
-                output.accept(ModBlocks.ENDERITE_BLOCK);
-
-                output.accept(ModItems.ENDERITE_AXE);
-                output.accept(ModItems.ENDERITE_HOE);
-                output.accept(ModItems.ENDERITE_SPEAR);
-                output.accept(ModItems.ENDERITE_SWORD);
-                output.accept(ModItems.ENDERITE_SHOVEL);
-                output.accept(ModItems.ENDERITE_PICKAXE);
-
-                output.accept(ModItems.ENDERITE_BOOTS);
-                output.accept(ModItems.ENDERITE_HELMET);
-                output.accept(ModItems.ENDERITE_LEGGINGS);
-                output.accept(ModItems.ENDERITE_CHESTPLATE);
-            })
-            .build();
+    public static void addTo(ResourceKey<CreativeModeTab> creativeModeTabs, ItemLike itemBefore, ItemLike item) {
+        CreativeModeTabEvents.modifyOutputEvent(creativeModeTabs)
+                .register((creativeTab) -> creativeTab.insertAfter(itemBefore, item));
+    }
 
     public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         // Create the item instance.
@@ -89,8 +62,22 @@ public class ModItems {
     }
 
     public static void initialize() {
-        // Get the event for modifying entries in the ingredients group.
-        // And register an event handler that adds our suspicious item to the ingredients group.
-        PolymerCreativeModeTabUtils.registerPolymerCreativeModeTab(CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
+        addTo(CreativeModeTabs.INGREDIENTS, Items.NETHERITE_INGOT, ENDERITE_SCRAP);
+        addTo(CreativeModeTabs.INGREDIENTS, ENDERITE_SCRAP, ENDERITE_INGOT);
+        addTo(CreativeModeTabs.COMBAT, Items.NETHERITE_HORSE_ARMOR, ENDERITE_HORSE_ARMOR);
+        addTo(CreativeModeTabs.COMBAT, Items.NETHERITE_NAUTILUS_ARMOR, ENDERITE_NAUTILUS_ARMOR);
+        addTo(CreativeModeTabs.INGREDIENTS, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+        addTo(CreativeModeTabs.COMBAT, Items.NETHERITE_SWORD, ENDERITE_SWORD);
+        addTo(CreativeModeTabs.COMBAT, Items.NETHERITE_SPEAR, ENDERITE_SPEAR);
+        addTo(CreativeModeTabs.COMBAT, Items.NETHERITE_AXE, ENDERITE_AXE);
+        addTo(CreativeModeTabs.COMBAT, Items.NETHERITE_BOOTS, ENDERITE_HELMET);
+        addTo(CreativeModeTabs.COMBAT, ENDERITE_HELMET, ENDERITE_CHESTPLATE);
+        addTo(CreativeModeTabs.COMBAT, ENDERITE_CHESTPLATE, ENDERITE_LEGGINGS);
+        addTo(CreativeModeTabs.COMBAT, ENDERITE_LEGGINGS, ENDERITE_BOOTS);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_HOE, ENDERITE_HOE);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_SHOVEL, ENDERITE_SHOVEL);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_PICKAXE, ENDERITE_PICKAXE);
+        addTo(CreativeModeTabs.NATURAL_BLOCKS, Items.ANCIENT_DEBRIS, ModBlocks.ASTRAL_DEBRIS);
+        addTo(CreativeModeTabs.BUILDING_BLOCKS, Items.NETHERITE_BLOCK, ModBlocks.ENDERITE_BLOCK);
     }
 }
