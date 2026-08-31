@@ -32,6 +32,8 @@ public class ModItems {
 
     public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new, new Item.Properties());
     public static final Item ENDERITE_SCRAP = register(ModItemIds.ENDERITE_SCRAP, SimplePolymerItem::new, new Item.Properties());
+    public static final Item ENDERITE_HORSE_ARMOR = register(ModItemIds.ENDERITE_HORSE_ARMOR, SimplePolymerItem::new, new Item.Properties());
+    public static final Item ENDERITE_NAUTILUS_ARMOR = register(ModItemIds.ENDERITE_NAUTILUS_ARMOR, SimplePolymerItem::new, new Item.Properties());
     public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = register(ModItemIds.ENDERITE_UPGRADE_SMITHING_TEMPLATE, SimplePolymerItem::new, new Item.Properties());
 
     public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, EnderiteAxe::new, new Item.Properties());
@@ -55,7 +57,10 @@ public class ModItems {
             .displayItems((params, output) -> {
                 output.accept(ModItems.ENDERITE_INGOT);
                 output.accept(ModItems.ENDERITE_SCRAP);
+                output.accept(ModItems.ENDERITE_HORSE_ARMOR);
+                output.accept(ModItems.ENDERITE_NAUTILUS_ARMOR);
                 output.accept(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+
                 output.accept(ModBlocks.ASTRAL_DEBRIS);
                 output.accept(ModBlocks.ENDERITE_BLOCK);
 
