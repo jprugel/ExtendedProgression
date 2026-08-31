@@ -5,6 +5,7 @@ import dev.jprugel.extendedProgression.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -15,7 +16,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder tb) {
+    public void generateTranslations(HolderLookup.@NonNull Provider holderLookup, TranslationBuilder tb) {
         tb.add("creativeTab.extended-progression", "Pyric Server Additions Enderite");
         tb.add(ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG, "Enderite Tool Material");
 
@@ -24,6 +25,8 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         tb.add(ModItems.ENDERITE_INGOT, "Enderite Ingot");
         tb.add(ModItems.ENDERITE_SCRAP, "Enderite Scrap");
+        tb.add(ModItems.ENDERITE_HORSE_ARMOR, "Enderite Horse Armor");
+        tb.add(ModItems.ENDERITE_NAUTILUS_ARMOR, "Enderite Nautilus Armor");
         tb.add(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE, "Enderite Upgrade");
 
         tb.add(ModItems.ENDERITE_HOE, "Enderite Hoe");
