@@ -24,10 +24,10 @@ public class ModWorldPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         List<PlacementModifier> astralDebrisVeinModifiers = List.of(
-                CountPlacement.of(1),
+                CountPlacement.of(16),
                 BiomeFilter.biome(),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.uniform(VerticalAnchor.TOP, VerticalAnchor.BOTTOM)
+                HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.TOP)
         );
 
         context.register(

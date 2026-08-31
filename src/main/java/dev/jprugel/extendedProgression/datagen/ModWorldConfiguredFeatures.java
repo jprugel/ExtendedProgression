@@ -37,7 +37,7 @@ public class ModWorldConfiguredFeatures {
                 ASTRAL_DEBRIS_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(astralDebrisOreConfig, 2, 1f)
+                        new OreConfiguration(astralDebrisOreConfig, 3, 1f)
                 )
         );
     }
