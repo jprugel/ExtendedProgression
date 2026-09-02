@@ -1,6 +1,5 @@
 package dev.jprugel.extendedProgression.item;
 
-import com.mojang.serialization.MapCodec;
 import dev.jprugel.extendedProgression.block.ModBlocks;
 import dev.jprugel.extendedProgression.datagen.ModBlockTagProvider;
 import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
@@ -17,13 +16,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 
 import java.util.function.Function;
 
@@ -37,30 +33,31 @@ public class ModItems {
             ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG
     );
 
-    public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new, new Item.Properties());
-    public static final Item ENDERITE_SCRAP = register(ModItemIds.ENDERITE_SCRAP, SimplePolymerItem::new, new Item.Properties());
-    public static final Item ENDERITE_HORSE_ARMOR = register(ModItemIds.ENDERITE_HORSE_ARMOR, SimplePolymerItem::new, new Item.Properties());
-    public static final Item ENDERITE_NAUTILUS_ARMOR = register(ModItemIds.ENDERITE_NAUTILUS_ARMOR, SimplePolymerItem::new, new Item.Properties());
-    public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = register(ModItemIds.ENDERITE_UPGRADE_SMITHING_TEMPLATE, SimplePolymerItem::new, new Item.Properties());
+    public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new);
+    public static final Item ENDERITE_SCRAP = register(ModItemIds.ENDERITE_SCRAP, SimplePolymerItem::new);
+    public static final Item ENDERITE_HORSE_ARMOR = register(ModItemIds.ENDERITE_HORSE_ARMOR, SimplePolymerItem::new);
+    public static final Item ENDERITE_NAUTILUS_ARMOR = register(ModItemIds.ENDERITE_NAUTILUS_ARMOR, SimplePolymerItem::new);
+    public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = register(ModItemIds.ENDERITE_UPGRADE_SMITHING_TEMPLATE, SimplePolymerItem::new);
 
-    public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, EnderiteAxe::new, new Item.Properties());
-    public static final Item ENDERITE_HOE = register(ModItemIds.ENDERITE_HOE, EnderiteHoe::new, new Item.Properties());
-    public static final Item ENDERITE_SPEAR = register(ModItemIds.ENDERITE_SPEAR, EnderiteSpear::new, new Item.Properties());
-    public static final Item ENDERITE_SWORD = register(ModItemIds.ENDERITE_SWORD, EnderiteSword::new, new Item.Properties());
-    public static final Item ENDERITE_SHOVEL = register(ModItemIds.ENDERITE_SHOVEL, EnderiteShovel::new, new Item.Properties());
-    public static final Item ENDERITE_PICKAXE = register(ModItemIds.ENDERITE_PICKAXE, EnderitePickaxe::new, new Item.Properties());
+    public static final Item ENDERITE_AXE = register(ModItemIds.ENDERITE_AXE, EnderiteAxe::new);
+    public static final Item ENDERITE_HOE = register(ModItemIds.ENDERITE_HOE, EnderiteHoe::new);
+    public static final Item ENDERITE_SPEAR = register(ModItemIds.ENDERITE_SPEAR, EnderiteSpear::new);
+    public static final Item ENDERITE_SWORD = register(ModItemIds.ENDERITE_SWORD, EnderiteSword::new);
+    public static final Item ENDERITE_SHOVEL = register(ModItemIds.ENDERITE_SHOVEL, EnderiteShovel::new);
+    public static final Item ENDERITE_PICKAXE = register(ModItemIds.ENDERITE_PICKAXE, EnderitePickaxe::new);
 
-    public static final Item ENDERITE_BOOTS = register(ModItemIds.ENDERITE_BOOTS, EnderiteBoots::new, new Item.Properties());
-    public static final Item ENDERITE_HELMET = register(ModItemIds.ENDERITE_HELMET, EnderiteHelmet::new, new Item.Properties());
-    public static final Item ENDERITE_LEGGINGS = register(ModItemIds.ENDERITE_LEGGINGS, EnderiteLeggings::new, new Item.Properties());
-    public static final Item ENDERITE_CHESTPLATE = register(ModItemIds.ENDERITE_CHESTPLATE, EnderiteChestplate::new, new Item.Properties());
+    public static final Item ENDERITE_BOOTS = register(ModItemIds.ENDERITE_BOOTS, EnderiteBoots::new);
+    public static final Item ENDERITE_HELMET = register(ModItemIds.ENDERITE_HELMET, EnderiteHelmet::new);
+    public static final Item ENDERITE_LEGGINGS = register(ModItemIds.ENDERITE_LEGGINGS, EnderiteLeggings::new);
+    public static final Item ENDERITE_CHESTPLATE = register(ModItemIds.ENDERITE_CHESTPLATE, EnderiteChestplate::new);
 
     public static void addTo(ResourceKey<CreativeModeTab> creativeModeTabs, ItemLike itemBefore, ItemLike item) {
         CreativeModeTabEvents.modifyOutputEvent(creativeModeTabs)
                 .register((creativeTab) -> creativeTab.insertAfter(itemBefore, item));
     }
 
-    public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
+    public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory) {
+        var settings = new Item.Properties();
         // Create the item instance.
         Item item = itemFactory.apply(settings.setId(itemKey));
 
@@ -70,7 +67,6 @@ public class ModItems {
         return item;
     }
 
-    private static final ResourceKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTable().orElseThrow();
     private static final ResourceKey<LootTable> END_BOAT_CHEST_LOOT_TABLE_ID = BuiltInLootTables.END_CITY_TREASURE;
 
     public static void initialize() {
@@ -93,7 +89,7 @@ public class ModItems {
         addTo(CreativeModeTabs.NATURAL_BLOCKS, Items.ANCIENT_DEBRIS, ModBlocks.ASTRAL_DEBRIS);
         addTo(CreativeModeTabs.BUILDING_BLOCKS, Items.NETHERITE_BLOCK, ModBlocks.ENDERITE_BLOCK);
 
-        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, _) -> {
             // Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
             // We also check that the loot table ID is equal to the ID we want.
             if (source.isBuiltin() && END_BOAT_CHEST_LOOT_TABLE_ID.equals(key)) {
