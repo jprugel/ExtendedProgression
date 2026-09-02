@@ -1,13 +1,12 @@
 package dev.jprugel.extendedProgression.item.tool;
 
-import dev.jprugel.extendedProgression.item.ModItems;
 import eu.pb4.polymer.core.api.item.PolymerItem;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.world.item.*;
 
 public class EnderiteShovel extends ShovelItem implements PolymerItem {
     public EnderiteShovel(Properties properties) {
-        super(ModItems.ENDERITE_TOOL_MATERIAL, 2f, -3f, properties);
+        super(EnderiteToolMaterial.INSTANCE, 2f, -3f, properties);
     }
 
     @Override

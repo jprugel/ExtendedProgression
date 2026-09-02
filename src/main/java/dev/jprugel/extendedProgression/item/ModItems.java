@@ -1,8 +1,6 @@
 package dev.jprugel.extendedProgression.item;
 
 import dev.jprugel.extendedProgression.block.ModBlocks;
-import dev.jprugel.extendedProgression.datagen.ModBlockTagProvider;
-import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
 import dev.jprugel.extendedProgression.item.armor.EnderiteBoots;
 import dev.jprugel.extendedProgression.item.armor.EnderiteChestplate;
 import dev.jprugel.extendedProgression.item.armor.EnderiteHelmet;
@@ -24,15 +22,6 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import java.util.function.Function;
 
 public class ModItems {
-    public static final ToolMaterial ENDERITE_TOOL_MATERIAL = new ToolMaterial(
-            ModBlockTagProvider.INCORRECT_FOR_ENDERITE_TOOL,
-            2640,
-            11f,
-            4.5f,
-            22,
-            ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG
-    );
-
     public static final Item ENDERITE_INGOT = register(ModItemIds.ENDERITE_INGOT, SimplePolymerItem::new);
     public static final Item ENDERITE_SCRAP = register(ModItemIds.ENDERITE_SCRAP, SimplePolymerItem::new);
     public static final Item ENDERITE_HORSE_ARMOR = register(ModItemIds.ENDERITE_HORSE_ARMOR, SimplePolymerItem::new);

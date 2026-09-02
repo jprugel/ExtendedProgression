@@ -1,6 +1,5 @@
 package dev.jprugel.extendedProgression.item.tool;
 
-import dev.jprugel.extendedProgression.item.ModItems;
 import eu.pb4.polymer.core.api.item.PolymerItem;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.world.item.*;
@@ -8,7 +7,7 @@ import net.minecraft.world.item.*;
 public class EnderiteAxe extends AxeItem implements PolymerItem {
 
     public EnderiteAxe(Properties properties) {
-        super(ModItems.ENDERITE_TOOL_MATERIAL, 5.5f, -2.9f, properties);
+        super(EnderiteToolMaterial.INSTANCE, 5.5f, -2.9f, properties);
     }
 
     @Override
