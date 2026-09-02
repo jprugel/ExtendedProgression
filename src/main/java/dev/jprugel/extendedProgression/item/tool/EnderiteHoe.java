@@ -7,7 +7,7 @@ import net.minecraft.world.item.*;
 
 public class EnderiteHoe extends HoeItem implements PolymerItem {
     public EnderiteHoe(Properties properties) {
-        super(ModItems.ENDERITE_TOOL_MATERIAL, 1f, 1f, properties);
+        super(ModItems.ENDERITE_TOOL_MATERIAL, -4.5f, 1f, properties);
     }
 
     @Override

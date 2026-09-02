@@ -1,5 +1,6 @@
 package dev.jprugel.extendedProgression.item;
 
+import com.mojang.serialization.MapCodec;
 import dev.jprugel.extendedProgression.block.ModBlocks;
 import dev.jprugel.extendedProgression.datagen.ModBlockTagProvider;
 import dev.jprugel.extendedProgression.datagen.ModItemTagProvider;
@@ -10,20 +11,28 @@ import dev.jprugel.extendedProgression.item.armor.EnderiteLeggings;
 import dev.jprugel.extendedProgression.item.tool.*;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 
 import java.util.function.Function;
 
 public class ModItems {
     public static final ToolMaterial ENDERITE_TOOL_MATERIAL = new ToolMaterial(
             ModBlockTagProvider.INCORRECT_FOR_ENDERITE_TOOL,
-            455,
-            1f,
-            2f,
+            2640,
+            11f,
+            4.5f,
             22,
             ModItemTagProvider.ENDERITE_TOOL_MATERIAL_TAG
     );
@@ -61,6 +70,9 @@ public class ModItems {
         return item;
     }
 
+    private static final ResourceKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTable().orElseThrow();
+    private static final ResourceKey<LootTable> END_BOAT_CHEST_LOOT_TABLE_ID = BuiltInLootTables.END_CITY_TREASURE;
+
     public static void initialize() {
         addTo(CreativeModeTabs.INGREDIENTS, Items.NETHERITE_INGOT, ENDERITE_SCRAP);
         addTo(CreativeModeTabs.INGREDIENTS, ENDERITE_SCRAP, ENDERITE_INGOT);
@@ -74,10 +86,23 @@ public class ModItems {
         addTo(CreativeModeTabs.COMBAT, ENDERITE_HELMET, ENDERITE_CHESTPLATE);
         addTo(CreativeModeTabs.COMBAT, ENDERITE_CHESTPLATE, ENDERITE_LEGGINGS);
         addTo(CreativeModeTabs.COMBAT, ENDERITE_LEGGINGS, ENDERITE_BOOTS);
-        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_HOE, ENDERITE_HOE);
-        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_SHOVEL, ENDERITE_SHOVEL);
-        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_PICKAXE, ENDERITE_PICKAXE);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, Items.NETHERITE_HOE, ENDERITE_SHOVEL);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, ENDERITE_SHOVEL, ENDERITE_PICKAXE);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, ENDERITE_PICKAXE, ENDERITE_AXE);
+        addTo(CreativeModeTabs.TOOLS_AND_UTILITIES, ENDERITE_AXE, ENDERITE_HOE);
         addTo(CreativeModeTabs.NATURAL_BLOCKS, Items.ANCIENT_DEBRIS, ModBlocks.ASTRAL_DEBRIS);
         addTo(CreativeModeTabs.BUILDING_BLOCKS, Items.NETHERITE_BLOCK, ModBlocks.ENDERITE_BLOCK);
+
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            // Let's only modify built-in loot tables and leave data pack loot tables untouched by checking the source.
+            // We also check that the loot table ID is equal to the ID we want.
+            if (source.isBuiltin() && END_BOAT_CHEST_LOOT_TABLE_ID.equals(key)) {
+                // We make the pool and add an item
+                LootPool.Builder poolBuilder = LootPool
+                        .lootPool()
+                        .add(LootItem.lootTableItem(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE));
+                tableBuilder.withPool(poolBuilder);
+            }
+        });
     }
 }

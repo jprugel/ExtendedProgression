@@ -10,6 +10,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import static net.minecraft.tags.ItemTags.NETHERITE_TOOL_MATERIALS;
+
 public abstract class EPRecipeProvider extends RecipeProvider {
 
     public EPRecipeProvider(
@@ -33,7 +35,7 @@ public abstract class EPRecipeProvider extends RecipeProvider {
                 )
                 .unlocks(
                         "has_netherite_ingot",
-                        this.has(ItemTags.NETHERITE_TOOL_MATERIALS)
+                        this.has(NETHERITE_TOOL_MATERIALS)
                 )
                 .save(
                         this.output,

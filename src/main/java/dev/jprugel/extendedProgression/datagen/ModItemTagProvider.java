@@ -8,8 +8,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -22,13 +24,13 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider _wrapperLookup) {
+    protected void addTags(HolderLookup.@NonNull Provider _wrapperLookup) {
         builder(ENDERITE_TOOL_MATERIAL_TAG)
-                .add(ModItemIds.ENDERITE_INGOT)
-                .setReplace(true);
-
+                .add(ModItemIds.ENDERITE_INGOT);
         builder(ENDERITE_ARMOR_MATERIAL_TAG)
-                .add(ModItemIds.ENDERITE_INGOT)
-                .setReplace(true);
+                .add(ModItemIds.ENDERITE_INGOT);
+
+        builder(ItemTags.MINING_ENCHANTABLE)
+                .add(ModItemIds.ENDERITE_PICKAXE);
     }
 }

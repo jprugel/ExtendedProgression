@@ -8,7 +8,7 @@ import net.minecraft.world.item.*;
 public class EnderiteAxe extends AxeItem implements PolymerItem {
 
     public EnderiteAxe(Properties properties) {
-        super(ModItems.ENDERITE_TOOL_MATERIAL, 1f, 1f, properties);
+        super(ModItems.ENDERITE_TOOL_MATERIAL, 5.5f, -2.9f, properties);
     }
 
     @Override
