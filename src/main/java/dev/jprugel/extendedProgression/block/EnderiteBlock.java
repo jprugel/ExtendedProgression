@@ -8,6 +8,7 @@ import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
@@ -17,7 +18,7 @@ public class EnderiteBlock extends Block implements PolymerTexturedBlock {
     private final BlockState polymerState;
 
     public EnderiteBlock(Properties properties) {
-        super(properties.destroyTime(DESTROY_TIME));
+        super(properties.destroyTime(DESTROY_TIME).sound(SoundType.GRASS));
 
         this.polymerState = PolymerBlockResourceUtils.requestBlock(
                 BlockModelType.FULL_BLOCK,

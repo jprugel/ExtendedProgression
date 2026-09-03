@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Function;
@@ -16,19 +15,16 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final AstralDebrisBlock ASTRAL_DEBRIS = register(
             ModBlockItemIds.ASTRAL_DEBRIS,
-            AstralDebrisBlock::new,
-            BlockBehaviour.Properties.of()
-                    .sound(SoundType.GRASS)
+            AstralDebrisBlock::new
     );
 
     public static final EnderiteBlock ENDERITE_BLOCK = register(
             ModBlockItemIds.ENDERITE_BLOCK,
-            EnderiteBlock::new,
-            BlockBehaviour.Properties.of()
-                    .sound(SoundType.GRASS)
+            EnderiteBlock::new
     );
 
-    private static <T extends Block> T register(BlockItemId id, Function<BlockBehaviour.Properties, T> blockFactory, BlockBehaviour.Properties properties) {
+    private static <T extends Block> T register(BlockItemId id, Function<BlockBehaviour.Properties, T> blockFactory) {
+        var properties = BlockBehaviour.Properties.of().air();
         // Create the block instance
         var block = register(id.block(), blockFactory, properties);
 
