@@ -5,13 +5,9 @@ import dev.jprugel.extendedProgression.datagen.ModWorldPlacedFeatures;
 import dev.jprugel.extendedProgression.item.ModItems;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.tag.FabricTagKey;
 import net.minecraft.tags.BiomeTags;
-import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.block.ChorusFlowerBlock;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,5 +31,7 @@ public class ExtendedProgression implements ModInitializer {
 
         ModItems.initialize();
         ModBlocks.initialize();
+
+        LOGGER.info("Finished Initializing.");
     }
 }
