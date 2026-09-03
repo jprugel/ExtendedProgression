@@ -12,10 +12,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
 public class EnderiteBlock extends Block implements PolymerTexturedBlock {
+    private static final float DESTROY_TIME = 15F;
+
     private final BlockState polymerState;
 
     public EnderiteBlock(Properties properties) {
-        super(properties);
+        super(properties.destroyTime(DESTROY_TIME));
 
         this.polymerState = PolymerBlockResourceUtils.requestBlock(
                 BlockModelType.FULL_BLOCK,

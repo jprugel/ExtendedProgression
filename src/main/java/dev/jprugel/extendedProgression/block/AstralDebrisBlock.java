@@ -2,7 +2,6 @@ package dev.jprugel.extendedProgression.block;
 
 import dev.jprugel.extendedProgression.ExtendedProgression;
 import eu.pb4.polymer.blocks.api.*;
-import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
@@ -10,10 +9,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
 public class AstralDebrisBlock extends Block implements PolymerTexturedBlock {
+    private static final float DESTROY_TIME = 15F;
+
     private final BlockState polymerState;
 
     public AstralDebrisBlock(Properties properties) {
-        super(properties);
+        super(properties.destroyTime(DESTROY_TIME));
 
         this.polymerState = PolymerBlockResourceUtils.requestBlock(
                 BlockModelType.FULL_BLOCK,
