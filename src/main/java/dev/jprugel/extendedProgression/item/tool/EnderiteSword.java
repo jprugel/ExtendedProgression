@@ -7,8 +7,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 public class EnderiteSword extends Item implements PolymerItem {
+    public static final float ATTACK_DAMAGE_BASELINE = 3.5F;
+    public static final float ATTACK_SPEED_BASELINE = -2.4F;
+
     public EnderiteSword(Properties properties) {
-        super(properties.sword(EnderiteToolMaterial.INSTANCE, 3.5f, -2.4f));
+        super(properties.sword(EnderiteToolMaterial.INSTANCE, ATTACK_DAMAGE_BASELINE, ATTACK_SPEED_BASELINE));
     }
 
     @Override

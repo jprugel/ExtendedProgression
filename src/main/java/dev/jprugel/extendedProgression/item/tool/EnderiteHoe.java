@@ -5,8 +5,11 @@ import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.world.item.*;
 
 public class EnderiteHoe extends HoeItem implements PolymerItem {
+    public static final float ATTACK_DAMAGE_BASELINE = -4.5F;
+    public static final float ATTACK_SPEED_BASELINE = 1F;
+
     public EnderiteHoe(Properties properties) {
-        super(EnderiteToolMaterial.INSTANCE, -4.5f, 1f, properties);
+        super(EnderiteToolMaterial.INSTANCE, ATTACK_DAMAGE_BASELINE, ATTACK_SPEED_BASELINE, properties);
     }
 
     @Override

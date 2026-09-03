@@ -7,8 +7,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 public class EnderitePickaxe extends Item implements PolymerItem {
+    public static final float ATTACK_DAMAGE_BASELINE = 1F;
+    public static final float ATTACK_SPEED_BASELINE = -2.5F;
+
     public EnderitePickaxe(Properties properties) {
-        super(properties.pickaxe(EnderiteToolMaterial.INSTANCE, 1f, -2.5f).fireResistant());
+        super(properties.pickaxe(EnderiteToolMaterial.INSTANCE, ATTACK_DAMAGE_BASELINE, ATTACK_SPEED_BASELINE).fireResistant());
     }
 
     @Override
